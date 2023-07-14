@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Checker</title>
+    <style>
+        body{
+            background-image: url("https://source.unsplash.com/1600x900/?moon");
+            font:italic 20pt Arial;
+            text-align: left;
+        }
+        h1{
+            text-align: center;
+            color:rgb(36, 23, 153);
+        }
+        header {
+            text-align: left;
+            box-shadow: 20px 10px 10px rgb(50, 50, 350); 
+            width: 600px;
+            margin: auto;
+        }
+        section{ 
+            background-color: rgb(50, 50, 350);
+            border-radius: 10px; 
+            padding:5px ; 
+            width: 600px; 
+            margin: auto; 
+            text-align: justify; 
+            box-shadow: 10px 10px 30px rgb(50, 50, 350);
+        }
+
+        p{ 
+             box-shadow: 10px 10px 30px;
+        }
+        footer{
+            color: black;
+            text-align: center;
+            background-color: rgb(50, 50, 350);
+            width: 600px;
+            margin: auto;
+        }
+        #button:hover{
+            background-color: rgb(92, 252, 0);
+            color: rgb(0, 0, 0);
+
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Age Checker</h1>
+    </header>
+
+    <section>
+            <div> <p> Full Name: <input type="text" placeholder="EX: Bill Gates"> </div>
+            <div>
+                <p> Year of Birth: <input type="number" placeholder="EX: 1980" name="txtyear" id="txtyear" min="0">
+                </p>
+                <p>Gender:
+                <input type="radio" name="radsex" id="mal" checked>
+                <label for="mal">Male</label>
+                <input type="radio" name="radsex" id="fem" >
+                <label for="fem">Female</label></p>
+                <p1 style.width. 15px > 
+                <input id="button" type="button" value="Check" onclick="toCheck()"> </p1>
+            </div>
+            <div id="res" style="text-align: center;">Please, fill in the fields above </div>
+
+
+    </section>©
+    <footer>
+        <p style="text-align: center;">$%^& Copyright © Ramon Andrade $%^&</p>
+
+
+    </footer>
+    <script>
+            function toCheck(){
+                var date = new Date()
+                var year = date.getFullYear()
+                var fyear = document.getElementById('txtyear')
+                var res = document.getElementById('res')
+                if(fyear.value.leigth == 0 || Number(fyear.value) > year) {window.alert('Wrong Answer. Try Again')
+                }else{
+                var fsex = document.getElementsByName('radsex')
+                var age = year - Number(fyear.value)
+                var gender = ''
+                var img = document.createElement(`img`)
+                img.setAttribute('id', 'foto')
+                if(fsex[0].checked) 
+                {gender = 'Man'
+                if(age >= 0 && age < 10 )
+                {img.style.width = '250px' ,img.setAttribute('src', 'yBoy.jpg')
+                }else if(age < 21){img.style.width = '250px' , img.setAttribute('src', 'teenBoy.jpg')
+                }else if(age < 50){img.style.width = '250px' ,img.setAttribute('src', 'man.jpg')
+                }else{img.style.width = '250px' ,img.setAttribute('src' , 'oMan.jpg')
+                } 
+                }else if (fsex[1].checked)
+                {gender = 'Woman'
+                if
+                (age >= 0 && age < 10)
+                {img.setAttribute('src' , 'yGirl.jpg' , img.style.width= '250px')}
+
+                else if
+                ( age <21)
+                { img.setAttribute('src' , 'teenGirl.jpg' , img.style.width= '250px')}
+
+                else if
+                (age <50)
+                {img.setAttribute('src' , 'woman.jpg'), img.style.width= '250px'}
+
+                else
+                {img.setAttribute('src' , 'oWoman.jpg'), img.style.width= '250px'}
+                }
+                }
+            res.style.textAlign = 'center'
+            res.innerHTML = `${age} years old ${gender}.<br><br>`
+            res.appendChild(img)
+            }
+    </script>
+</body>
+</html>
